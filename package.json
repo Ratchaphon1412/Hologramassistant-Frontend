@@ -11,11 +11,15 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxtjs/tailwindcss": "^6.10.1",
+    "daisyui": "^4.4.14",
     "nuxt": "^3.8.2",
+    "nuxt-headlessui": "^1.1.4",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "vue-audio-visual": "^3.0.6"
+    "vue-audio-visual": "^3.0.6",
+    "flowbite": "^2.2.0"
   }
 }
