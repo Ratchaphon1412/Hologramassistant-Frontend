@@ -9,7 +9,11 @@ export default {
     "./node_modules/flowbite/**/*.{js,ts}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage:{
+        'parallax': 'url("")'
+      }
+    },
   },
   plugins: [
     require('flowbite/plugin'),
