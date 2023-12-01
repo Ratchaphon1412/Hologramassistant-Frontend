@@ -1,12 +1,12 @@
 <template>
 <!-- <div class="h-screen bg-cover bg-gray-700"></div> -->
-<div class="flex items-center justify-center h-screen bg-fixed bg-cover relative
+<div class="justify-center h-screen bg-fixed bg-cover relative
 bg-[url('https://cdn.discordapp.com/attachments/711217095681245235/1180182843217936424/00117.png?ex=657c7dec&is=656a08ec&hm=4762457ed37475a0c563423d960308a3e36643c8fc14dfee0549616a19799882&')]
 ">
 <img class="h-full w-full absolute"
 src="https://cdn.discordapp.com/attachments/711217095681245235/1180179194144108614/00115.png?ex=657c7a86&is=656a0586&hm=f8c5904169ca97e2c7286543a5e70c595018e0fbcf7d24f101c78e89130b8d3f&"
 >
-<h1 class="text-4xl text-white uppercase z-10">Hello my love</h1>
+<div class="text-8xl text-white uppercase z-10 absolute left-20 top-20 font-semibold">Hello my love</div>
 </div>
 <div class="h-32 bg-cover bg-gray-700"></div>
 <div class="flex items-center justify-center h-96 bg-fixed bg-cover
