@@ -199,9 +199,11 @@ bg-[url('https://media.discordapp.net/attachments/876675067306733621/11801557721
 // definePageMeta({ layout: false })
 
 import { onMounted, onUnmounted, ref } from 'vue';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
+// import gsap from 'gsap';
+// import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// gsap.registerPlugin(ScrollTrigger);
+
+const { $gsap: gsap } = useNuxtApp();
 
 const main = ref();
 let ctx: any;
