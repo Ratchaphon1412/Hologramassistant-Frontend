@@ -196,7 +196,7 @@ bg-[url('https://media.discordapp.net/attachments/876675067306733621/11801557721
     <!-- <div class="h-32 bg-cover bg-gray-700"></div> -->
 </template>
 <script lang="ts" setup>
-definePageMeta({ layout: false })
+// definePageMeta({ layout: false })
 
 import { onMounted, onUnmounted, ref } from 'vue';
 import gsap from 'gsap';
