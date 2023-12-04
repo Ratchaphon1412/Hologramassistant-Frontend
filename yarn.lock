@@ -1198,7 +1198,11 @@
 
 "@vueuse/core@^9.1.0":
   version "9.13.0"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/@vueuse/core/-/core-9.13.0.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-9.13.0.tgz#2f69e66d1905c1e4eebc249a01759cf88ea00cf4"
+>>>>>>> feature/Content
   integrity sha512-pujnclbeHWxxPRqXWmdkKV5OX4Wk4YeK7wusHqRwU0Q7EFusHoqNA/aPhB6KCh9hEqJkLAJo7bb0Lh9b+OIVzw==
   dependencies:
     "@types/web-bluetooth" "^0.0.16"
@@ -1208,15 +1212,31 @@
 
 "@vueuse/metadata@9.13.0":
   version "9.13.0"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/@vueuse/metadata/-/metadata-9.13.0.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-9.13.0.tgz#bc25a6cdad1b1a93c36ce30191124da6520539ff"
+>>>>>>> feature/Content
   integrity sha512-gdU7TKNAUVlXXLbaF+ZCfte8BjRJQWPCa2J55+7/h+yDtzw3vOoGQDRXzI6pyKyo6bXFT5/QoPE4hAknExjRLQ==
 
 "@vueuse/shared@9.13.0":
   version "9.13.0"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/@vueuse/shared/-/shared-9.13.0.tgz"
   integrity sha512-UrnhU+Cnufu4S6JLCPZnkWh0WwZGUp72ktOF2DFptMlOs3TOdVv8xJN53zhHGARmVOsz5KqOls09+J1NR6sBKw==
   dependencies:
     vue-demi "*"
+=======
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-9.13.0.tgz#089ff4cc4e2e7a4015e57a8f32e4b39d096353b9"
+  integrity sha512-UrnhU+Cnufu4S6JLCPZnkWh0WwZGUp72ktOF2DFptMlOs3TOdVv8xJN53zhHGARmVOsz5KqOls09+J1NR6sBKw==
+  dependencies:
+    vue-demi "*"
+
+abbrev@1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
+  integrity sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==
+>>>>>>> feature/Content
 
 abbrev@^2.0.0:
   version "2.0.0"
@@ -5761,7 +5781,11 @@ vscode-uri@^3.0.2:
 
 vue-audio-visual@^3.0.6:
   version "3.0.6"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/vue-audio-visual/-/vue-audio-visual-3.0.6.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/vue-audio-visual/-/vue-audio-visual-3.0.6.tgz#51fa8aa0b1120af20faec5e923c7fc70e4691278"
+>>>>>>> feature/Content
   integrity sha512-H7zg+S93AwXlCnwZToDEtifRjOCHLb6iwmkRvYKDspaTQbffB5jT30Jvl8Y8djchIHVEWM9UW5Mae6ew/7YQ3Q==
   dependencies:
     "@vueuse/core" "^9.1.0"
@@ -5776,7 +5800,11 @@ vue-bundle-renderer@^2.0.0:
 
 vue-demi@*:
   version "0.14.6"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/vue-demi/-/vue-demi-0.14.6.tgz"
+=======
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.14.6.tgz#dc706582851dc1cdc17a0054f4fec2eb6df74c92"
+>>>>>>> feature/Content
   integrity sha512-8QA7wrYSHKaYgUxDA5ZC24w+eHm3sYCbp0EzcDwKqN3p6HqtTCGR/GVsPyZW92unff4UlcSh++lmqDWN3ZIq4w==
 
 vue-devtools-stub@^0.1.0:
@@ -5791,7 +5819,11 @@ vue-router@^4.1.0, vue-router@^4.2.5:
   dependencies:
     "@vue/devtools-api" "^6.5.0"
 
+<<<<<<< HEAD
 "vue@^2.7.0 || ^3.2.25", vue@^3.0.0, "vue@^3.0.0-0 || ^2.6.0", vue@^3.2.0, vue@^3.2.25, vue@^3.2.37, vue@^3.3.4, vue@^3.3.8, "vue@>=2.7 || >=3", vue@3.3.9:
+=======
+vue@^3.2.37, vue@^3.3.8:
+>>>>>>> feature/Content
   version "3.3.9"
   resolved "https://registry.npmjs.org/vue/-/vue-3.3.9.tgz"
   integrity sha512-sy5sLCTR8m6tvUk1/ijri3Yqzgpdsmxgj6n6yl7GXXCXqVbmW2RCXe9atE4cEI6Iv7L89v5f35fZRRr5dChP9w==
