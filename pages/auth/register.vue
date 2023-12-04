@@ -1,4 +1,8 @@
 <script setup lang="ts">
+
+import { authStore } from '~/store/auth.store';
+let auth = authStore()
+
 let error_email = ref(false);
 let error_name = ref(false);
 
@@ -16,6 +20,10 @@ let username = ref(""); //
 let email = ref("");
 
 async function submit() {
+  auth.email = email.value
+  auth.username = username.value
+  auth.password = Password.value
+  await navigateTo('/auth/validate')
 //   if (realPassword.value === Password.value && username.value !== "" && fullname.value !== "" && phone.value !== "" && gender.value !== "" && email.value !== "") {
 //     // store in pinia store to use somewhere
 //     await registerStore(username.value,fullname.value,phone.value,gender.value,email.value,Password.value)
@@ -218,23 +226,6 @@ watch(
   100% {
     transform: translateY(0);
   }
-}
-
-.box{
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  transform-origin: bottom;
-}
-
-.bounce-1{
-  animation-name: bounce-1;
-  animation-timing-function: linear;
-}
-
-@keyframes bounce-1 {
-    0%   { transform: translateY(0); }
-    50%  { transform: translateY(-100px); }
-    100% { transform: translateY(0); }
 }
 
 </style>

@@ -12,6 +12,7 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxtjs/tailwindcss": "^6.10.1",
+    "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
     "daisyui": "^4.4.14",
     "nuxt": "^3.8.2",
     "nuxt-headlessui": "^1.1.4",
@@ -19,7 +20,9 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "vue-audio-visual": "^3.0.6",
-    "flowbite": "^2.2.0"
+    "@pinia/nuxt": "^0.5.1",
+    "flowbite": "^2.2.0",
+    "pinia": "^2.1.7",
+    "vue-audio-visual": "^3.0.6"
   }
 }
