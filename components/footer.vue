@@ -1,6 +1,6 @@
 <template>
   <div>
-    <footer class="footer p-10 bg-neutral text-neutral-content">
+    <footer class="footer p-10 bg-black text-neutral-content">
       <aside>
         <svg
           width="50"
