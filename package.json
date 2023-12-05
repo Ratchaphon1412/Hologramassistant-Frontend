@@ -12,6 +12,7 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxtjs/tailwindcss": "^6.10.1",
+    "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
     "daisyui": "^4.4.14",
     "nuxt": "^3.8.2",
     "nuxt-headlessui": "^1.1.4",
@@ -25,6 +26,8 @@
     "gsap": "^3.12.3",
     "mapbox-gl": "3.0.0",
     "three": "^0.159.0",
+    "@pinia/nuxt": "^0.5.1",
+    "pinia": "^2.1.7",
     "vue-audio-visual": "^3.0.6"
   }
 }
