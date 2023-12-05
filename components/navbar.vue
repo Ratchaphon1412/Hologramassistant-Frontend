@@ -28,11 +28,8 @@
           data-dropdown-placement="bottom"
         >
           <span class="sr-only">Open user menu</span>
-          <img
-            class="w-8 h-8 rounded-full"
-            src=""
-            alt="user photo"
-          />
+          <!-- <img class="w-8 h-8 rounded-full" src="" alt="user photo" /> -->
+          <span> Ratchaphon Hinsui</span>
         </button>
         <!-- Dropdown menu -->
         <div
@@ -105,7 +102,7 @@
         class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
         id="navbar-user"
       >
-        <ul
+        <!-- <ul
           class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0"
         >
           <li>
@@ -144,7 +141,7 @@
               >Contact</a
             >
           </li>
-        </ul>
+        </ul> -->
       </div>
     </div>
   </nav>
