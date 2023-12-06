@@ -3,22 +3,22 @@
     <div
       class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
     >
-      <a
-        href="https://flowbite.com/"
-        class="flex items-center space-x-3 rtl:space-x-reverse"
-      >
+      <NuxtLink to="/" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img
           src="https://flowbite.com/docs/images/logo.svg"
           class="h-8"
-          alt="Flowbite Logo"
+          alt="Assistant Logo"
         />
         <span class="self-center text-2xl font-semibold whitespace-nowrap"
           >Assistant</span
         >
-      </a>
+      </NuxtLink>
+
       <div
+        v-if="auth.isLogged"
         class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse"
       >
+        <!--Profile Button-->
         <button
           type="button"
           class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300"
@@ -29,50 +29,48 @@
         >
           <span class="sr-only">Open user menu</span>
           <!-- <img class="w-8 h-8 rounded-full" src="" alt="user photo" /> -->
-          <span> Ratchaphon Hinsui</span>
+          <span> {{ auth.usernameProfile }}</span>
         </button>
         <!-- Dropdown menu -->
         <div
-          class="z-50 hidden my-4 text-base list-none divide-y divide-gray-100 rounded-lg shadow"
+          class="z-50 hidden my-4 text-base list-none divide-y divide-gray-100 rounded-lg shadow bg-black"
           id="user-dropdown"
         >
           <div class="px-4 py-3">
-            <span class="block text-sm text-gray-900">Bonnie Green</span>
-            <span class="block text-sm text-gray-500 truncate"
-              >name@flowbite.com</span
-            >
+            <span class="block text-sm text-white">{{
+              auth.usernameProfile
+            }}</span>
+            <span class="block text-sm text-gray-400 truncate">{{
+              auth.emailProfile
+            }}</span>
           </div>
           <ul class="py-2" aria-labelledby="user-menu-button">
             <li>
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600"
-                >Dashboard</a
+              <NuxtLink
+                to="/"
+                class="block px-4 py-2 text-sm text-gray-400 hover:bg-gray-100 hover:text-gray-700"
+                >Home</NuxtLink
               >
             </li>
             <li>
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600"
-                >Settings</a
+              <NuxtLink
+                to="/ai"
+                class="block px-4 py-2 text-sm text-gray-400 hover:bg-gray-100 hover:text-gray-700"
+                >AI</NuxtLink
               >
             </li>
+
             <li>
               <a
                 href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600"
-                >Earnings</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600"
+                @click="logout"
+                class="block px-4 py-2 text-sm text-gray-400 hover:bg-gray-100 hover:text-gray-700"
                 >Sign out</a
               >
             </li>
           </ul>
         </div>
+        <!--Humberger Button-->
         <button
           data-collapse-toggle="navbar-user"
           type="button"
@@ -98,6 +96,15 @@
           </svg>
         </button>
       </div>
+      <!-- login button -->
+      <div
+        v-else
+        class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse"
+      >
+        <NuxtLink to="/auth/login" class="btn btn-neutral">Login</NuxtLink>
+      </div>
+
+      <!-- list menu-->
       <div
         class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
         id="navbar-user"
@@ -147,6 +154,14 @@
   </nav>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { authStore } from "~/store/auth";
+const auth = authStore();
+
+function logout() {
+  auth.logout();
+  navigateTo("/");
+}
+</script>
 
 <style></style>

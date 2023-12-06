@@ -12,7 +12,16 @@ let check_password = ref(false);
 
 async function onSubmit() {
   if (email.value && password.value) {
-    const data = await auth.login(email.value, password.value);
+    const checkauth = await auth.login(email.value, password.value);
+    console.log(checkauth);
+
+    if (checkauth) {
+      const me = await auth.me();
+
+      if (me) {
+        navigateTo("/ai");
+      }
+    }
   }
 }
 </script>
@@ -139,6 +148,7 @@ async function onSubmit() {
           <button
             type="submit"
             class="btn btn-info w-full text-white bg-gradient-to-r from-cyan-500 to-blue-500 text-3xl"
+            @click="onSubmit"
           >
             Sign in
           </button>
@@ -221,4 +231,3 @@ async function onSubmit() {
   }
 }
 </style>
-~/store/auth
