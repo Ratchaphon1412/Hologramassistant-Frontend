@@ -28,7 +28,7 @@ onMounted(() => {
   const map = new mapboxgl.Map({
     container: mapContainer.value,
     style: "mapbox://styles/mapbox/streets-v11",
-    center: [2.294694, 48.858093],
+    center: latlongarray,
     zoom: 16,
     projection: "globe",
     pitch: 45,
@@ -92,7 +92,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="mapContainer" class="w-3/4 h-1/2"></div>
+  <div ref="mapContainer" class="w-5/6 h-2/3"></div>
 </template>
 
 <style scoped>
