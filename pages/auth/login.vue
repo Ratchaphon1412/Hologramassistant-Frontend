@@ -7,8 +7,7 @@ const auth = authStore();
 
 let email = ref("");
 let password = ref("");
-let check_email = ref(false);
-let check_password = ref(false);
+let error = ref(false);
 
 async function onSubmit() {
   if (email.value && password.value) {
@@ -21,6 +20,8 @@ async function onSubmit() {
       if (me) {
         navigateTo("/ai");
       }
+    } else {
+      error.value = true;
     }
   }
 }
@@ -41,7 +42,15 @@ async function onSubmit() {
           See more the AI Let go!
         </p>
         <form action="" class="w-[60%]" @submit.prevent="onSubmit">
-          <div class="mb-4">
+          <p
+            v-if="error"
+            id="outlined_error_help"
+            class="mt-2 text-xs text-red-600"
+          >
+            <span class="font-medium">Oh, snapp!</span> Username or Password is
+            not correct.
+          </p>
+          <div class="mb-4 mt-4">
             <div class="relative">
               <input
                 type="text"
@@ -56,13 +65,6 @@ async function onSubmit() {
                 >Email</label
               >
             </div>
-            <p
-              v-if="check_email"
-              id="outlined_error_help"
-              class="mt-2 text-xs text-red-600"
-            >
-              <span class="font-medium">Oh, snapp!</span> Some error message.
-            </p>
           </div>
 
           <div>
@@ -80,13 +82,6 @@ async function onSubmit() {
                 >password</label
               >
             </div>
-            <p
-              v-if="check_password"
-              id="outlined_error_help"
-              class="mt-2 text-xs text-red-600"
-            >
-              <span class="font-medium">Oh, snapp!</span> Some error message.
-            </p>
           </div>
 
           <!-- sign in with google -->
