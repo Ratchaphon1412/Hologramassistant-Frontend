@@ -22,31 +22,6 @@ async function submit() {
   auth.username = username.value;
   auth.password = Password.value;
   await navigateTo("/auth/validate");
-  //   if (realPassword.value === Password.value && username.value !== "" && fullname.value !== "" && phone.value !== "" && gender.value !== "" && email.value !== "") {
-  //     // store in pinia store to use somewhere
-  //     await registerStore(username.value,fullname.value,phone.value,gender.value,email.value,Password.value)
-
-  //     // store to database
-  //     await register(username.value,fullname.value,phone.value,gender.value,email.value,Password.value)
-  //     Swal.fire({
-  //             confirmButtonText: 'OK',
-  //             icon : `success`,
-  //             title : "success"
-  //         }).then((result) => {
-  //             if(result.isConfirmed){
-  //                 navigateTo("/auth/login")
-  //             }
-  //         })
-  //     // navigateTo("/auth/registerAddress")
-  //     error_realPassword.value = false;
-  //   } else {
-  //     error_realPassword.value = true;
-  //     Swal.fire({
-  //             icon: 'error',
-  //             title: 'something wrong',
-  //             text: 'กรณุากรอกข้อมูลให้ครบถ้วน'
-  //         })
-  //   }
 }
 
 watch(
@@ -228,4 +203,3 @@ watch(
   }
 }
 </style>
-~/store/auth

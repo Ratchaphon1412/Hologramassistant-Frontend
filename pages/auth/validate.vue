@@ -2,10 +2,15 @@
 import { authStore } from "~/store/auth";
 let auth = authStore();
 let code = ref("");
+let error = ref(false);
 
-function submit() {
-  auth.token = code.value;
-  console.log(auth.token);
+async function submit() {
+  const response = await auth.register(code.value);
+  if (response) {
+    await navigateTo("/auth/login");
+  } else {
+    error.value = true;
+  }
 }
 </script>
 
@@ -24,17 +29,29 @@ function submit() {
         id="moveright"
       >
         <p class="text-white text-3xl font-semibold tracking-wide mb-4">
-          Varify code
+          Power of AI
         </p>
-
-        <p class="text-xs mb-16 font-semibold tracking-wide">code in email</p>
+        <p class="text-xs mb-4 font-semibold tracking-wide">
+          Fill the access token of Chat GPT <br />
+        </p>
+        <span class="text-xs mb-4 font-semibold tracking-wide">
+          this project is open source and free to use for everyone , <br />
+          The access token use for chat conversation only.
+        </span>
         <form action="" class="w-[50%]" @submit.prevent="submit">
+          <p
+            v-if="error"
+            id="outlined_error_help"
+            class="mt-2 mb-4 text-xs text-red-600"
+          >
+            <span class="font-medium">Oh, snapp!</span> Can't Create Account.
+          </p>
           <div class="mb-4">
             <div class="relative">
               <input
                 type="text"
                 id="floating_outlined"
-                model="code"
+                v-model="code"
                 class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-white bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=""
               />
@@ -48,9 +65,10 @@ function submit() {
 
           <button
             type="submit"
+            @click="submit"
             class="btn btn-info w-full text-white bg-gradient-to-r from-cyan-500 to-blue-500 text-3xl"
           >
-            VERIFY
+            Submit
           </button>
         </form>
 
@@ -96,4 +114,3 @@ function submit() {
   }
 }
 </style>
-~/store/auth

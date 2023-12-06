@@ -75,6 +75,31 @@ export const authStore = defineStore(
       return false;
     }
 
+    async function register(token: string) {
+      const { data: data, error: error } = await useApiBase<{
+        access: string;
+        refresh: string;
+      }>("/user/profile/", {
+        method: "POST",
+        body: JSON.stringify({
+          email: email.value,
+          username: username.value,
+          password: password.value,
+          openai_token: token,
+        }),
+      });
+
+      if (data.value) {
+        email.value = "";
+        username.value = "";
+        password.value = "";
+
+        return true;
+      }
+
+      return false;
+    }
+
     function logout() {
       accessToken.value = "";
       refreshToken.value = "";
@@ -98,6 +123,7 @@ export const authStore = defineStore(
       isLogged,
       logout,
       refreshAuth,
+      register,
     };
   },
   {
