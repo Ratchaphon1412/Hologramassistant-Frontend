@@ -16,7 +16,8 @@ export const authStore = defineStore(
     async function login(emailParam: string, passwordParam: string) {
       try {
         const { data: data, error: error } = await useApiBase<{
-          token: string;
+          access: string;
+          refresh: string;
         }>("/user/token/", {
           method: "POST",
           body: JSON.stringify({
@@ -40,7 +41,9 @@ export const authStore = defineStore(
 
     async function me() {
       const { data: data, error: error } = await useApiBase<{
-        token: string;
+        email: string;
+        username: string;
+        openai_token: string;
       }>("/user/profile/", {
         method: "GET",
       });
@@ -49,6 +52,24 @@ export const authStore = defineStore(
         emailProfile.value = data.value?.email;
         usernameProfile.value = data.value?.username;
         openaiToken.value = data.value?.openai_token;
+        return true;
+      }
+      return false;
+    }
+
+    async function refreshAuth() {
+      const { data: data, error: error } = await useApiBase<{
+        access: string;
+      }>("/user/token/refresh/", {
+        method: "POST",
+        body: JSON.stringify({
+          refresh: refreshToken.value,
+        }),
+      });
+      console.log("refreshAuth");
+
+      if (data.value) {
+        accessToken.value = data.value?.access;
         return true;
       }
       return false;
@@ -76,6 +97,7 @@ export const authStore = defineStore(
       openaiToken,
       isLogged,
       logout,
+      refreshAuth,
     };
   },
   {
