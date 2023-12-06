@@ -53,7 +53,7 @@ export const useApiBase = async <T>(path: string, options: any) => {
 
       return retryResponse;
     } else {
-      navigateTo("/login");
+      navigateTo("/auth/login");
     }
   }
   return response;
