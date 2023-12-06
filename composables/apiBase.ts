@@ -10,10 +10,13 @@ export const useApiBase = async <T>(path: string, options: any) => {
   const auth = authStore();
   const headers: Headers = {
     Accept: "application/json",
-    Authorization: `Bearer ${auth.accessToken}`,
   };
 
-  return await useFetch<T>(path, {
+  if (auth.isLogged) {
+    headers["Authorization"] = `Bearer ${auth.accessToken}`;
+  }
+
+  const response = await useFetch<T>(path, {
     credentials: "include",
     watch: false,
     ...options,
@@ -22,9 +25,36 @@ export const useApiBase = async <T>(path: string, options: any) => {
       ...headers,
       ...options?.headers,
     },
-    onRequestError({ request, options, error }) {
-      // Handle the request errors
-      console.log("onRequestError", error);
-    },
   });
+  console.log(response.data);
+  console.log(response.error.value?.statusCode);
+  if (response.error && response.error.value?.statusCode === 401) {
+    // Handle unauthorized error
+
+    // Refresh token
+    const refresh = await auth.refreshAuth();
+
+    if (refresh) {
+      // Retry request
+      if (auth.isLogged) {
+        headers["Authorization"] = `Bearer ${auth.accessToken}`;
+      }
+
+      const retryResponse = await useFetch<T>(path, {
+        credentials: "include",
+        watch: false,
+        ...options,
+        baseURL: config.public.apiBaseURL,
+        headers: {
+          ...headers,
+          ...options?.headers,
+        },
+      });
+
+      return retryResponse;
+    } else {
+      navigateTo("/login");
+    }
+  }
+  return response;
 };
